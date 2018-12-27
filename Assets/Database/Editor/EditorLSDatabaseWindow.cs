@@ -231,7 +231,10 @@ namespace Lockstep.Data
                 IsLoaded = false;
                 return;
             }
+
+            //设置配置表里面的默认数据库
             LSFSettingsManager.GetSettings().Database = database;
+            //且保存
             LSFSettingsModifier.Save();
             IsLoaded = true;
         }

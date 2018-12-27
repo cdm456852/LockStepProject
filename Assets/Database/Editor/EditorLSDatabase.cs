@@ -108,6 +108,7 @@ namespace Lockstep.Data
         {
         }
 
+        //编辑数据库的初始化
         public void Initialize(EditorLSDatabaseWindow window, LSDatabase database, out bool valid)
         {
             //设置主界面
