@@ -7,14 +7,16 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
-namespace TypeReferences {
+namespace TypeReferences
+{
 
 	/// <summary>
 	/// Custom property drawer for <see cref="ClassTypeReference"/> properties.
 	/// </summary>
 	[CustomPropertyDrawer(typeof(ClassTypeReference))]
 	[CustomPropertyDrawer(typeof(ClassTypeConstraintAttribute), true)]
-	public sealed class ClassTypeReferencePropertyDrawer : PropertyDrawer {
+	public sealed class ClassTypeReferencePropertyDrawer : PropertyDrawer
+	{
 
 		#region Type Filtering
 
@@ -55,7 +57,8 @@ namespace TypeReferences {
 		/// </example>
 		public static Func<ICollection<Type>> ExcludedTypeCollectionGetter { get; set; }
 
-		private static List<Type> GetFilteredTypes(ClassTypeConstraintAttribute filter) {
+		private static List<Type> GetFilteredTypes(ClassTypeConstraintAttribute filter)
+		{
 			var types = new List<Type>();
 
 			var excludedTypes = (ExcludedTypeCollectionGetter != null ? ExcludedTypeCollectionGetter() : null);
@@ -71,8 +74,10 @@ namespace TypeReferences {
 			return types;
 		}
 
-		private static void FilterTypes(Assembly assembly, ClassTypeConstraintAttribute filter, ICollection<Type> excludedTypes, List<Type> output) {
-			foreach (var type in assembly.GetTypes()) {
+		private static void FilterTypes(Assembly assembly, ClassTypeConstraintAttribute filter, ICollection<Type> excludedTypes, List<Type> output)
+		{
+			foreach (var type in assembly.GetTypes())
+			{
 				if (!type.IsPublic || !type.IsClass)
 					continue;
 
@@ -92,9 +97,11 @@ namespace TypeReferences {
 
 		private static Dictionary<string, Type> s_TypeMap = new Dictionary<string, Type>();
 
-		private static Type ResolveType(string classRef) {
+		private static Type ResolveType(string classRef)
+		{
 			Type type;
-			if (!s_TypeMap.TryGetValue(classRef, out type)) {
+			if (!s_TypeMap.TryGetValue(classRef, out type))
+			{
 				type = !string.IsNullOrEmpty(classRef) ? Type.GetType(classRef) : null;
 				s_TypeMap[classRef] = type;
 			}
@@ -108,7 +115,8 @@ namespace TypeReferences {
 		private static readonly int s_ControlHint = typeof(ClassTypeReferencePropertyDrawer).GetHashCode();
 		private static GUIContent s_TempContent = new GUIContent();
 
-		private static string DrawTypeSelectionControl(Rect position, GUIContent label, string classRef, ClassTypeConstraintAttribute filter) {
+		private static string DrawTypeSelectionControl(Rect position, GUIContent label, string classRef, ClassTypeConstraintAttribute filter)
+		{
 			if (label != null && label != GUIContent.none)
 				position = EditorGUI.PrefixLabel(position, label);
 
@@ -116,11 +124,15 @@ namespace TypeReferences {
 
 			bool triggerDropDown = false;
 
-			switch (Event.current.GetTypeForControl(controlID)) {
+			switch (Event.current.GetTypeForControl(controlID))
+			{
 				case EventType.ExecuteCommand:
-					if (Event.current.commandName == "TypeReferenceUpdated") {
-						if (s_SelectionControlID == controlID) {
-							if (classRef != s_SelectedClassRef) {
+					if (Event.current.commandName == "TypeReferenceUpdated")
+					{
+						if (s_SelectionControlID == controlID)
+						{
+							if (classRef != s_SelectedClassRef)
+							{
 								classRef = s_SelectedClassRef;
 								GUI.changed = true;
 							}
@@ -132,7 +144,8 @@ namespace TypeReferences {
 					break;
 
 				case EventType.MouseDown:
-					if (GUI.enabled && position.Contains(Event.current.mousePosition)) {
+					if (GUI.enabled && position.Contains(Event.current.mousePosition))
+					{
 						GUIUtility.keyboardControl = controlID;
 						triggerDropDown = true;
 						Event.current.Use();
@@ -140,8 +153,10 @@ namespace TypeReferences {
 					break;
 
 				case EventType.KeyDown:
-					if (GUI.enabled && GUIUtility.keyboardControl == controlID) {
-						if (Event.current.keyCode == KeyCode.Return || Event.current.keyCode == KeyCode.Space) {
+					if (GUI.enabled && GUIUtility.keyboardControl == controlID)
+					{
+						if (Event.current.keyCode == KeyCode.Return || Event.current.keyCode == KeyCode.Space)
+						{
 							triggerDropDown = true;
 							Event.current.Use();
 						}
@@ -162,10 +177,11 @@ namespace TypeReferences {
 					break;
 			}
 
-			if (triggerDropDown) {
+			if (triggerDropDown)
+			{
 				s_SelectionControlID = controlID;
 				s_SelectedClassRef = classRef;
-	
+
 				var filteredTypes = GetFilteredTypes(filter);
 				DisplayDropDown(position, filteredTypes, ResolveType(classRef), filter.Grouping);
 			}
@@ -173,8 +189,10 @@ namespace TypeReferences {
 			return classRef;
 		}
 
-		private static void DrawTypeSelectionControl(Rect position, SerializedProperty property, GUIContent label, ClassTypeConstraintAttribute filter) {
-			try {
+		private static void DrawTypeSelectionControl(Rect position, SerializedProperty property, GUIContent label, ClassTypeConstraintAttribute filter)
+		{
+			try
+			{
 				bool restoreShowMixedValue = EditorGUI.showMixedValue;
 				EditorGUI.showMixedValue = property.hasMultipleDifferentValues;
 
@@ -182,18 +200,21 @@ namespace TypeReferences {
 
 				EditorGUI.showMixedValue = restoreShowMixedValue;
 			}
-			finally {
+			finally
+			{
 				ExcludedTypeCollectionGetter = null;
 			}
 		}
 
-		private static void DisplayDropDown(Rect position, List<Type> types, Type selectedType, ClassGrouping grouping) {
+		private static void DisplayDropDown(Rect position, List<Type> types, Type selectedType, ClassGrouping grouping)
+		{
 			var menu = new GenericMenu();
 
 			menu.AddItem(new GUIContent("(None)"), selectedType == null, s_OnSelectedTypeName, null);
 			menu.AddSeparator("");
 
-			for (int i = 0; i < types.Count; ++i) {
+			for (int i = 0; i < types.Count; ++i)
+			{
 				var type = types[i];
 
 				string menuLabel = FormatGroupedTypeName(type, grouping);
@@ -207,10 +228,12 @@ namespace TypeReferences {
 			menu.DropDown(position);
 		}
 
-		private static string FormatGroupedTypeName(Type type, ClassGrouping grouping) {
+		private static string FormatGroupedTypeName(Type type, ClassGrouping grouping)
+		{
 			string name = type.FullName;
 
-			switch (grouping) {
+			switch (grouping)
+			{
 				default:
 				case ClassGrouping.None:
 					return name;
@@ -239,22 +262,25 @@ namespace TypeReferences {
 
 		private static readonly GenericMenu.MenuFunction2 s_OnSelectedTypeName = OnSelectedTypeName;
 
-		private static void OnSelectedTypeName(object userData) {
+		private static void OnSelectedTypeName(object userData)
+		{
 			var selectedType = userData as Type;
 
 			s_SelectedClassRef = ClassTypeReference.GetClassRef(selectedType);
-			
+
 			var typeReferenceUpdatedEvent = EditorGUIUtility.CommandEvent("TypeReferenceUpdated");
 			EditorWindow.focusedWindow.SendEvent(typeReferenceUpdatedEvent);
 		}
 
 		#endregion
 
-		public override float GetPropertyHeight(SerializedProperty property, GUIContent label) {
+		public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
+		{
 			return EditorStyles.popup.CalcHeight(GUIContent.none, 0);
 		}
 
-		public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+		public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+		{
 			DrawTypeSelectionControl(position, property.FindPropertyRelative("_classRef"), label, attribute as ClassTypeConstraintAttribute);
 		}
 

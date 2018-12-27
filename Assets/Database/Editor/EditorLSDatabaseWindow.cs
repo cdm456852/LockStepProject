@@ -9,7 +9,7 @@ namespace Lockstep.Data
     [System.Serializable]
     public sealed class EditorLSDatabaseWindow : EditorWindow
     {
-
+        //_databaseType
         [SerializeField, ClassImplements(typeof(IDatabase))]
         ClassTypeReference _databaseType;
         Type DatabaseType
@@ -54,9 +54,11 @@ namespace Lockstep.Data
             window.Show();
         }
 
+        //初始化加载数据库
         void LoadInit()
         {
             Window = this;
+            //从 settings里面加载
             this.LoadDatabase(LSFSettingsManager.GetSettings().Database);
             if (this.Database != null)
             {
@@ -110,6 +112,7 @@ namespace Lockstep.Data
         bool settingsFoldout = false;
 
         TextAsset jsonFile;
+        //绘制文件读取及保存及创建
         void DrawSettings()
         {
             settingsFoldout = EditorGUILayout.Foldout(settingsFoldout, "Data Settings");

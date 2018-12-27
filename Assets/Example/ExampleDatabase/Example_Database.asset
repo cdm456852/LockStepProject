@@ -24,11 +24,34 @@ MonoBehaviour:
     _description: 
     _icon: {fileID: 0}
     _prefab: {fileID: 0}
+  - _name: 
+    _description: 
+    _icon: {fileID: 0}
+    _prefab: {fileID: 0}
+  - _name: 
+    _description: 
+    _icon: {fileID: 0}
+    _prefab: {fileID: 0}
+  - _name: 
+    _description: 
+    _icon: {fileID: 0}
+    _prefab: {fileID: 0}
+  - _name: 
+    _description: 
+    _icon: {fileID: 0}
+    _prefab: {fileID: 0}
+  - _name: 
+    _description: 
+    _icon: {fileID: 0}
+    _prefab: {fileID: 0}
   _inputData:
   - _name: Attack
   - _name: Move
   - _name: Spawn
   - _name: Stop
+  - _name: 
+  - _name: 
+  - _name: 
   _projectileData:
   - _name: TestBullet
     _description: 
@@ -82,4 +105,16 @@ MonoBehaviour:
   - _name: Player 2
     _defaultAllegiance: 4
     _playerManaged: 1
+    _commanderCode: 
+  - _name: 
+    _defaultAllegiance: 1
+    _playerManaged: 0
+    _commanderCode: 
+  - _name: 
+    _defaultAllegiance: 1
+    _playerManaged: 0
+    _commanderCode: 
+  - _name: 
+    _defaultAllegiance: 1
+    _playerManaged: 0
     _commanderCode: 
