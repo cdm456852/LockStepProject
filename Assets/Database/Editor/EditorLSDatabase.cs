@@ -153,7 +153,9 @@ namespace Lockstep.Data
         {
             //创建DataHelper
             DataHelper helper = new DataHelper(info.TargetType, this, Database, info.DataName, info.FieldName, info.Sorts, out valid);
+            //添加到帮助次序里面
             this.HelperOrder.Add(info.DataName);
+            //建立显示名字和datahelper的关联
             this.DataHelpers.Add(info.DataName, helper);
             return helper;
         }
@@ -170,12 +172,13 @@ namespace Lockstep.Data
 
         private static bool foldAllBuffer;
         private static bool foldAllBufferBuffer;
-        private int selectedHelperIndex;
+        private int selectedHelperIndex;                    //当前选中的数据帮助类的索引
 
         public void Draw()
         {
             EditorGUILayout.BeginVertical();
             EditorGUILayout.BeginHorizontal();
+            //如果数据帮助类的数量为0的话 直接返回
             if (DataHelpers.Count == 0)
             {
                 EditorGUILayout.LabelField("Nothin' here to see");
@@ -189,16 +192,23 @@ namespace Lockstep.Data
                 }
             }
             EditorGUILayout.EndHorizontal();
+            //绘制数据库
             DrawDatabase(DataHelpers[HelperOrder[selectedHelperIndex]]);
             EditorGUILayout.EndVertical();
         }
 
+        //绘制数据库
         private static void DrawDatabase(DataHelper dataHelper)
         {
+            //如果dataHelper为空 或者dataHelper的dataProperty为空 直接返回
             if (dataHelper == null || dataHelper.DataProperty == null) return;
             dataHelper.serializedObject.Update();
             EditorGUI.BeginChangeCheck();
+            //第一个参数为 字段的属性,第二个参数为列表的展现方式
+            //绘制list
             LSEditorUtility.ListField(dataHelper.DataProperty, dataHelper.ListFlags);
+
+            //保存修改过的变量
             if (EditorGUI.EndChangeCheck())
             {
                 dataHelper.serializedObject.ApplyModifiedProperties();

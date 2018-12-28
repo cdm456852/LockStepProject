@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2017
+# Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LockStepProject", "LockStepProject.csproj", "{5D285414-0C74-7F96-39BD-65BDC30EACED}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LockStepProject.Editor", "LockStepProject.Editor.csproj", "{B28E28D9-7F74-9C09-D458-5536D4DC1417}"

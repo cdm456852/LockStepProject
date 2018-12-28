@@ -79,7 +79,7 @@ namespace Lockstep.Data
         bool loadInited = false;
         void OnGUI()
         {
-
+            //如果没有初始化 先初始化
             if (!loadInited)
             {
                 LoadInit();
@@ -89,7 +89,10 @@ namespace Lockstep.Data
                 EditorGUILayout.LabelField("Values modified may not be pulled by previously existing units.", EditorStyles.boldLabel);
                 //return;
             }
+            //绘制设置
             DrawSettings();
+
+            //绘制数据库
             if (DatabaseEditor != null)
             {
                 DrawDatabase();
@@ -138,6 +141,7 @@ namespace Lockstep.Data
                     {
 
                         LSFSettingsModifier.Save();
+                        //加载数据库到配置表里面
                         if (LoadDatabaseFromPath(DatabasePath) == false)
                         {
                             Debug.LogFormat("Database was not found at path of '{0}'.", DatabasePath);
@@ -183,7 +187,7 @@ namespace Lockstep.Data
 
         }
 
-
+        //绘制数据库
         void DrawDatabase()
         {
 

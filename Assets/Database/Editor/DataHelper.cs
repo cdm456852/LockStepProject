@@ -65,13 +65,13 @@ namespace Lockstep.Data
         }
 
         string _dataFieldName;
-        public SerializedProperty DataProperty
+        public SerializedProperty DataProperty                 //数据属性(根据名字查找)
         {
             get { return serializedObject.FindProperty(_dataFieldName); }
         }
 
         private SerializedObject _serializedObject;
-        public SerializedObject serializedObject
+        public SerializedObject serializedObject                //当前数据库的序列化对象
         {
             get { return SourceEditor.serializedObject; }
         }

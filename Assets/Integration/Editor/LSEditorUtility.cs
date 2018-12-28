@@ -1,6 +1,7 @@
 ﻿#if UNITY_EDITOR
 using UnityEngine;
-using System.Collections; using FastCollections;
+using System.Collections;
+using FastCollections;
 using Lockstep;
 using System;
 using UnityEditor;
@@ -19,8 +20,8 @@ using System.Text.RegularExpressions;
 
 namespace Lockstep
 {
-    public delegate void SerializeAction <T>(ref T value);
-    public  static partial class LSEditorUtility
+    public delegate void SerializeAction<T>(ref T value);
+    public static partial class LSEditorUtility
     {
         public static void PropertyField(this SerializedObject so, string propertyName)
         {
@@ -32,7 +33,7 @@ namespace Lockstep
             value = EditorGUILayout.Toggle(content, value);
         }
 
-        public static void EnumField<T>(string content, ref T value) where T: struct, IComparable, IConvertible, IFormattable
+        public static void EnumField<T>(string content, ref T value) where T : struct, IComparable, IConvertible, IFormattable
         {
 
             if (value.GetType().IsEnum == false)
@@ -72,13 +73,13 @@ namespace Lockstep
                     Array.Resize<bool>(ref showElements, values.Length);
                 for (int i = 0; i < values.Length; i++)
                 {
-                    if (showElements [i] = EditorGUILayout.Foldout(showElements [i], "Element " + i.ToString()))
+                    if (showElements[i] = EditorGUILayout.Foldout(showElements[i], "Element " + i.ToString()))
                     {
-                        elementAction(ref values [i]);
+                        elementAction(ref values[i]);
                     }
                 }
                 EndIndent();
-                
+
             }
         }
 
@@ -98,7 +99,8 @@ namespace Lockstep
             if (max == 0 || value <= max)
             {
                 Value = value;
-            } else
+            }
+            else
             {
                 Value = max;
             }
@@ -143,7 +145,7 @@ namespace Lockstep
                         Rect drawRect = drawSource;
                         drawRect.y += cellHeight * i;
                         drawRect.x += cellWidth * j;
-                        values [j, i] = EditorGUI.Toggle(drawRect, values [j, i]);
+                        values[j, i] = EditorGUI.Toggle(drawRect, values[j, i]);
                     }
                 }
                 EndIndent();
@@ -185,7 +187,8 @@ namespace Lockstep
             {
                 ret = new bool[sourceArray.IsNotNull() ? sourceArray.Length : 0];
                 Foldouts.Add(source, ret);
-            } else
+            }
+            else
             {
                 if (sourceArray.IsNotNull())
                 {
@@ -200,13 +203,13 @@ namespace Lockstep
 
         public static void EnumGOMap<EnumT, RequireT>(ref GameObject[] gos)
         {
-            EnumMap<EnumT,GameObject>(ref gos, SerializeGameObjectAction<RequireT>);
+            EnumMap<EnumT, GameObject>(ref gos, SerializeGameObjectAction<RequireT>);
         }
 
         private static void SerializeGameObjectAction<RequireT>(ref GameObject target)
         {
             GameObject temp = (GameObject)EditorGUILayout.ObjectField(
-                                  target, 
+                                  target,
                                   typeof(GameObject),
                                   false);
             if (temp.IsNotNull() && temp.GetComponent<RequireT>() == null)
@@ -217,7 +220,7 @@ namespace Lockstep
         }
 
 
-        public static void EnumMap<EnumT,MapT>(ref MapT[] enumObjects, SerializeAction<MapT> serialize)
+        public static void EnumMap<EnumT, MapT>(ref MapT[] enumObjects, SerializeAction<MapT> serialize)
         {
             Array enumArray = Enum.GetValues(typeof(EnumT));
             if (enumObjects.Length != enumArray.Length)
@@ -227,7 +230,8 @@ namespace Lockstep
             if (enumObjects == null)
             {
                 enumObjects = new MapT[enumArray.Length];
-            } else if (enumObjects.Length != enumArray.Length)
+            }
+            else if (enumObjects.Length != enumArray.Length)
             {
                 Array.Resize(ref enumObjects, enumArray.Length);
             }
@@ -237,9 +241,9 @@ namespace Lockstep
             for (int i = 0; i < enumArray.Length; i++)
             {
                 string content = enumArray.GetValue(i).ToString();
-                if (foldout [i] = EditorGUILayout.Foldout(foldout [i], content))
+                if (foldout[i] = EditorGUILayout.Foldout(foldout[i], content))
                 {
-                    serialize(ref enumObjects [i]);
+                    serialize(ref enumObjects[i]);
                 }
             }
             EndIndent();
@@ -249,13 +253,13 @@ namespace Lockstep
         public static void SerializeObjectAction<ObjectT>(ref ObjectT target) where ObjectT : UnityEngine.Object
         {
             ObjectT temp = (ObjectT)EditorGUILayout.ObjectField(
-                               target, 
+                               target,
                                typeof(ObjectT),
                                false);
             target = temp;
         }
 
-        
+
         public static void BeginIndent()
         {
             GUILayout.BeginHorizontal();
@@ -294,10 +298,11 @@ namespace Lockstep
             {
                 if (i + 1 == polyLine.Length)
                 {
-                    Gizmos.DrawLine(polyLine [i], polyLine [0]);
-                } else
+                    Gizmos.DrawLine(polyLine[i], polyLine[0]);
+                }
+                else
                 {
-                    Gizmos.DrawLine(polyLine [i], polyLine [i + 1]);
+                    Gizmos.DrawLine(polyLine[i], polyLine[i + 1]);
                 }
             }
         }
@@ -320,15 +325,15 @@ namespace Lockstep
             int minCols = Math.Min(cols, original.GetLength(1));
             for (int i = 0; i < minRows; i++)
                 for (int j = 0; j < minCols; j++)
-                    newArray [i, j] = original [i, j];
+                    newArray[i, j] = original[i, j];
             original = newArray;
         }
 
-		public const ReorderableListFlags DisableReordering = ReorderableListFlags.DisableReordering;
+        public const ReorderableListFlags DisableReordering = ReorderableListFlags.DisableReordering;
         public const ReorderableListFlags DisableAddRemove = ReorderableListFlags.HideAddButton | ReorderableListFlags.HideRemoveButtons;
-		public const ReorderableListFlags DefaultListFlags = ReorderableListFlags.ShowIndices;
+        public const ReorderableListFlags DefaultListFlags = ReorderableListFlags.ShowIndices;
 
-		public static void ListField(SerializedProperty property, ReorderableListFlags flags = DefaultListFlags)
+        public static void ListField(SerializedProperty property, ReorderableListFlags flags = DefaultListFlags)
         {
             Rotorz.ReorderableList.ReorderableListGUI.ListField(
                 property
@@ -336,8 +341,8 @@ namespace Lockstep
             );
         }
 
-        static Dictionary<string,bool> persistentFlags = new Dictionary<string,bool>();
-        static Dictionary<string,float> persistentValues = new Dictionary<string,float>();
+        static Dictionary<string, bool> persistentFlags = new Dictionary<string, bool>();
+        static Dictionary<string, float> persistentValues = new Dictionary<string, float>();
 
         public static bool GetPersistentFlagExists(string id)
         {
@@ -358,8 +363,9 @@ namespace Lockstep
         {
             if (persistentFlags.ContainsKey(id))
             {
-                persistentFlags [id] = value;
-            } else
+                persistentFlags[id] = value;
+            }
+            else
             {
                 persistentFlags.Add(id, value);
             }
@@ -377,7 +383,7 @@ namespace Lockstep
                 show,
                 label
             );
-            persistentFlags [id] = show;
+            persistentFlags[id] = show;
             return show;
         }
 
@@ -396,7 +402,7 @@ namespace Lockstep
             if (!persistentValues.ContainsKey(id))
                 persistentValues.Add(id, value);
             else
-                persistentValues [id] = value;
+                persistentValues[id] = value;
 
         }
 
@@ -413,8 +419,8 @@ namespace Lockstep
             string directory,
             string enumName,
             DataItem[] data,
-            Func<DataItem,string> getEnumElementName,
-            Func<DataItem,int> getEnumElementValue)
+            Func<DataItem, string> getEnumElementName,
+            Func<DataItem, int> getEnumElementValue)
         {
             string generationFolder = directory;
             string namespaceName = "Lockstep.Data";
@@ -470,7 +476,7 @@ namespace Lockstep
             enumNames.Add("None");
             for (int i = 0; i < data.Length; i++)
             {
-                DataItem item = data [i];
+                DataItem item = data[i];
                 string memberName = getEnumElementName(item);
                 if (string.IsNullOrEmpty(memberName))
                 {
@@ -490,7 +496,8 @@ namespace Lockstep
                 CodeMemberField member = new CodeMemberField
                 {
                     Name = memberName
-                    , InitExpression = new CodePrimitiveExpression(memberValue)
+                    ,
+                    InitExpression = new CodePrimitiveExpression(memberValue)
                 };
                 newEnum.Members.Add(member);
                 enumNames.Add(memberName);
@@ -526,13 +533,13 @@ namespace Lockstep
             {
                 if (!type.IsPublic || !type.IsClass)
                     continue;
-                
+
                 if (type.IsAbstract || !(filterType.IsAssignableFrom(type)))
                     continue;
-                
+
                 if (excludedTypes != null && excludedTypes.Contains(type))
                     continue;
-                
+
                 output.Add(type);
             }
         }
@@ -540,17 +547,17 @@ namespace Lockstep
         public static List<Type> GetFilteredTypes(Type filterType)
         {
             var types = new List<Type>();
-            
+
             var excludedTypes = (ExcludedTypeCollectionGetter != null ? ExcludedTypeCollectionGetter() : null);
-            
+
             var assembly = Assembly.GetExecutingAssembly();
             FilterTypes(assembly, filterType, excludedTypes, types);
-            
+
             foreach (var referencedAssembly in assembly.GetReferencedAssemblies())
                 FilterTypes(Assembly.Load(referencedAssembly), filterType, excludedTypes, types);
-            
+
             types.Sort((a, b) => a.FullName.CompareTo(b.FullName));
-            
+
             return types;
         }
 
@@ -607,7 +614,7 @@ namespace Lockstep
             object[] attributes = lastPropertyFieldInfo.GetCustomAttributes(typeof(TAttribute), true);
 
             for (int i = 0; i < attributes.Length; i++)
-                yield return (TAttribute)attributes [i];
+                yield return (TAttribute)attributes[i];
         }
 
         static FieldInfo lastPropertyFieldInfo;
@@ -624,7 +631,8 @@ namespace Lockstep
                     var elementName = element.Substring(0, element.IndexOf("["));
                     var index = Convert.ToInt32(element.Substring(element.IndexOf("[")).Replace("[", "").Replace("]", ""));
                     obj = GetValue(obj, elementName, index);
-                } else
+                }
+                else
                 {
                     obj = GetValue(obj, element);
                 }
@@ -671,11 +679,12 @@ namespace Lockstep
             if (absolutePath.StartsWith(Application.dataPath))
             {
                 relativePath = "Assets" + absolutePath.Substring(Application.dataPath.Length);
-            } else
+            }
+            else
             {
                 relativePath = absolutePath;
             }
-			Path.GetFileNameWithoutExtension (relativePath);
+            Path.GetFileNameWithoutExtension(relativePath);
             return relativePath;
         }
 
