@@ -724,6 +724,7 @@ namespace Lockstep.Rotorz.ReorderableList
 		// Micro-optimisation to avoid repeated construction.
 		private static Rect s_RemoveButtonPosition;
 
+		//绘制列表里面的物体
 		private void DrawListItem(Rect position, IReorderableListAdaptor adaptor, int itemIndex)
 		{
 			bool isRepainting = Event.current.type == EventType.Repaint;
@@ -880,6 +881,7 @@ namespace Lockstep.Rotorz.ReorderableList
 
 		/// <summary>
 		/// Draw list container and items.
+		/// 开始绘制列表
 		/// </summary>
 		/// <param name="position">Position of list control in GUI.</param>
 		/// <param name="adaptor">Reorderable list adaptor.</param>

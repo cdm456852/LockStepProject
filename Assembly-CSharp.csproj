@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LangVersion>4</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <RootNamespace></RootNamespace>
+    <ProjectGuid>{0CDDA7B5-89BB-C531-2432-884839229A03}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <BaseDirectory>Assets</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2017_4_3;UNITY_2017_4;UNITY_2017;PLATFORM_ARCH_64;UNITY_64;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;ENABLE_SPRITE_MASKING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_VIDEO;ENABLE_RMGUI;ENABLE_PACKMAN;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_STYLE_SHEETS;ENABLE_LOCALIZATION;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_AR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Temp\bin\Release\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\Core\Game\Abilities\Ability.cs" />
+     <Compile Include="Assets\Core\Game\Abilities\AbilityManager.cs" />
+     <Compile Include="Assets\Core\Game\Abilities\ActiveAbility.cs" />
+     <Compile Include="Assets\Core\Game\Abilities\DurationAbility.cs" />
+     <Compile Include="Assets\Core\Game\Abilities\Essential\Health\AttackerInfo.cs" />
+     <Compile Include="Assets\Core\Game\Abilities\Essential\Health\Health.cs" />
+     <Compile Include="Assets\Core\Game\Abilities\Essential\HeightSet.cs" />
+     <Compile Include="Assets\Core\Game\Abilities\Essential\Move.cs" />
+     <Compile Include="Assets\Core\Game\Abilities\Essential\Scan.cs" />
+     <Compile Include="Assets\Core\Game\Abilities\Essential\SpecialHitEffect.cs" />
+     <Compile Include="Assets\Core\Game\Abilities\Essential\Stats.cs" />
+     <Compile Include="Assets\Core\Game\Abilities\Essential\Stop.cs" />
+     <Compile Include="Assets\Core\Game\Abilities\Essential\Turn.cs" />
+     <Compile Include="Assets\Core\Game\Abilities\Extra\SelectionRing\SelectionRing.cs" />
+     <Compile Include="Assets\Core\Game\Abilities\Extra\SelectionRing\SelectionRingController.cs" />
+     <Compile Include="Assets\Core\Game\Abilities\Extra\SelectionRing\SelectionRingState.cs" />
+     <Compile Include="Assets\Core\Game\Agents\AgentControllerSystem\AgentController.cs" />
+     <Compile Include="Assets\Core\Game\Agents\AgentControllerSystem\AgentControllerHelper.cs" />
+     <Compile Include="Assets\Core\Game\Agents\AgentControllerSystem\AgentControllerTool.cs" />
+     <Compile Include="Assets\Core\Game\Agents\AgentTag.cs" />
+     <Compile Include="Assets\Core\Game\Agents\AgentType.cs" />
+     <Compile Include="Assets\Core\Game\Agents\Commander\AgentCommander.cs" />
+     <Compile Include="Assets\Core\Game\Agents\LSAgent.cs" />
+     <Compile Include="Assets\Core\Game\Agents\LSAnimator.cs" />
+     <Compile Include="Assets\Core\Game\Agents\LSAnimatorBase.cs" />
+     <Compile Include="Assets\Core\Game\Agents\LSBusStop.cs" />
+     <Compile Include="Assets\Core\Game\Agents\LSParticler.cs" />
+     <Compile Include="Assets\Core\Game\Agents\Teams\Team.cs" />
+     <Compile Include="Assets\Core\Game\Agents\Teams\TeamManager.cs" />
+     <Compile Include="Assets\Core\Game\Agents\UnitConfig\UnitConfigHelper.cs" />
+     <Compile Include="Assets\Core\Game\Agents\Visuals\ExampleGUIManager.cs" />
+     <Compile Include="Assets\Core\Game\Agents\Visuals\GUIManager.cs" />
+     <Compile Include="Assets\Core\Game\Agents\Visuals\InterfacerCode.cs" />
+     <Compile Include="Assets\Core\Game\Agents\Visuals\RotateRing.cs" />
+     <Compile Include="Assets\Core\Game\BehaviourHelper\BehaviourHelper.cs" />
+     <Compile Include="Assets\Core\Game\BehaviourHelper\BehaviourHelperManager.cs" />
+     <Compile Include="Assets\Core\Game\BehaviourHelper\DefaultHelperSetup.cs" />
+     <Compile Include="Assets\Core\Game\Buffs\Buff.cs" />
+     <Compile Include="Assets\Core\Game\Determinism\DeterminismTester.cs" />
+     <Compile Include="Assets\Core\Game\Determinism\LockstepAttribute.cs" />
+     <Compile Include="Assets\Core\Game\Determinism\LSVariable.cs" />
+     <Compile Include="Assets\Core\Game\Determinism\LSVariableContainer.cs" />
+     <Compile Include="Assets\Core\Game\Determinism\LSVariableManager.cs" />
+     <Compile Include="Assets\Core\Game\Effects\EffectDataItem.cs" />
+     <Compile Include="Assets\Core\Game\Effects\EffectManager.cs" />
+     <Compile Include="Assets\Core\Game\Effects\LSEffect.cs" />
+     <Compile Include="Assets\Core\Game\Grouping\MovementGroup.cs" />
+     <Compile Include="Assets\Core\Game\Grouping\MovementGroupHelper.cs" />
+     <Compile Include="Assets\Core\Game\Grouping\ScanGroupHelper.cs" />
+     <Compile Include="Assets\Core\Game\ILockstepEventsHandler.cs" />
+     <Compile Include="Assets\Core\Game\Managers\ClientManager.cs" />
+     <Compile Include="Assets\Core\Game\Managers\FrameManager.cs" />
+     <Compile Include="Assets\Core\Game\Managers\GameManager\GameManager.cs" />
+     <Compile Include="Assets\Core\Game\Managers\Input\InputCodeManager.cs" />
+     <Compile Include="Assets\Core\Game\Managers\LockstepManager.cs" />
+     <Compile Include="Assets\Core\Game\Managers\LSServer.cs" />
+     <Compile Include="Assets\Core\Game\Managers\MessageType.cs" />
+     <Compile Include="Assets\Core\Game\Managers\Network\NetworkHelper.cs" />
+     <Compile Include="Assets\Core\Game\Managers\Network\NetworkSettings\LSNetworkSettings.cs" />
+     <Compile Include="Assets\Core\Game\Managers\Network\NetworkSettings\LSNetworkSettingsSaver.cs" />
+     <Compile Include="Assets\Core\Game\Managers\Replay.cs" />
+     <Compile Include="Assets\Core\Game\Managers\ReplayManager.cs" />
+     <Compile Include="Assets\Core\Game\Managers\ServerSimulator.cs" />
+     <Compile Include="Assets\Core\Game\Managers\UnityInstance.cs" />
+     <Compile Include="Assets\Core\Game\Networking\NetworkHelperTester.cs" />
+     <Compile Include="Assets\Core\Game\Player\Commands\Command.cs" />
+     <Compile Include="Assets\Core\Game\Player\Commands\CommandManager.cs" />
+     <Compile Include="Assets\Core\Game\Player\Commands\Default\BaseSerializableValue.cs" />
+     <Compile Include="Assets\Core\Game\Player\Commands\Default\DefaultData.cs" />
+     <Compile Include="Assets\Core\Game\Player\Commands\Default\EmptyData.cs" />
+     <Compile Include="Assets\Core\Game\Player\Commands\Default\SerializableValue.cs" />
+     <Compile Include="Assets\Core\Game\Player\Commands\ICommandData.cs" />
+     <Compile Include="Assets\Core\Game\Player\OrderMarker.cs" />
+     <Compile Include="Assets\Core\Game\Player\PlayerManager.cs" />
+     <Compile Include="Assets\Core\Game\Player\RTSInterfacing.cs" />
+     <Compile Include="Assets\Core\Game\Player\RTSInterfacingHelper.cs" />
+     <Compile Include="Assets\Core\Game\Player\SelectionManager.cs" />
+     <Compile Include="Assets\Core\Game\Player\UI\BarElement.cs" />
+     <Compile Include="Assets\Core\Game\Player\UI\StatsBar.cs" />
+     <Compile Include="Assets\Core\Game\Player\Utility\BoxedAgents.cs" />
+     <Compile Include="Assets\Core\Game\Player\Utility\IMousable.cs" />
+     <Compile Include="Assets\Core\Game\Player\Utility\Selection.cs" />
+     <Compile Include="Assets\Core\Game\Player\Utility\Selector.cs" />
+     <Compile Include="Assets\Core\Game\Projectiles\DamageManager.cs" />
+     <Compile Include="Assets\Core\Game\Projectiles\HitType.cs" />
+     <Compile Include="Assets\Core\Game\Projectiles\LSProjectile.cs" />
+     <Compile Include="Assets\Core\Game\Projectiles\ProjectileDataItem.cs" />
+     <Compile Include="Assets\Core\Game\Projectiles\ProjectileManager.cs" />
+     <Compile Include="Assets\Core\Game\Projectiles\TargetingType.cs" />
+     <Compile Include="Assets\Core\Simulation\Grid\Clearance\ClearanceValueGenerator.cs" />
+     <Compile Include="Assets\Core\Simulation\Grid\Clearance\ClearanceValues.cs" />
+     <Compile Include="Assets\Core\Simulation\Grid\Core\GridHeap.cs" />
+     <Compile Include="Assets\Core\Simulation\Grid\Core\GridManager.cs" />
+     <Compile Include="Assets\Core\Simulation\Grid\Core\GridNode.cs" />
+     <Compile Include="Assets\Core\Simulation\Grid\Core\ScanNode.cs" />
+     <Compile Include="Assets\Core\Simulation\Grid\Influence\DeltaCache.cs" />
+     <Compile Include="Assets\Core\Simulation\Grid\Influence\InfluenceManager.cs" />
+     <Compile Include="Assets\Core\Simulation\Grid\Influence\LSInfluencer.cs" />
+     <Compile Include="Assets\Core\Simulation\Grid\Influence\Utility\DeltaCacheGenerator.cs" />
+     <Compile Include="Assets\Core\Simulation\Grid\Influence\Utility\DeltaCountCacheGenerator.cs" />
+     <Compile Include="Assets\Core\Simulation\Grid\Settings\GridSettings.cs" />
+     <Compile Include="Assets\Core\Simulation\Grid\Settings\GridSettingsSaver.cs" />
+     <Compile Include="Assets\Core\Simulation\Grid\Utility\Tools\Blocker\Blocker.cs" />
+     <Compile Include="Assets\Core\Simulation\Grid\Utility\Tools\Blocker\BoundsBlocker.cs" />
+     <Compile Include="Assets\Core\Simulation\Grid\Utility\Tools\Blocker\DynamicBlocker.cs" />
+     <Compile Include="Assets\Core\Simulation\Grid\Utility\Tools\Blocker\ManualBlocker.cs" />
+     <Compile Include="Assets\Core\Simulation\Math\Area.cs" />
+     <Compile Include="Assets\Core\Simulation\Math\Coordinate.cs" />
+     <Compile Include="Assets\Core\Simulation\Math\FixedMath.cs" />
+     <Compile Include="Assets\Core\Simulation\Math\Pan-Line-Algorithm-master\FractionalLineAlgorithm.cs" />
+     <Compile Include="Assets\Core\Simulation\Math\Pan-Line-Algorithm-master\FractionalLineAlgorithmTest.cs" />
+     <Compile Include="Assets\Core\Simulation\Math\Vector2d.cs" />
+     <Compile Include="Assets\Core\Simulation\Math\Vector3d.cs" />
+     <Compile Include="Assets\Core\Simulation\Pathfinding\Pathfinder.cs" />
+     <Compile Include="Assets\Core\Simulation\Physics\Core\CollisionPair.cs" />
+     <Compile Include="Assets\Core\Simulation\Physics\Core\Legacy\LSBody.cs" />
+     <Compile Include="Assets\Core\Simulation\Physics\Core\LSBody.cs" />
+     <Compile Include="Assets\Core\Simulation\Physics\Core\LSBodyOverlapCheck.cs" />
+     <Compile Include="Assets\Core\Simulation\Physics\Core\Partition.cs" />
+     <Compile Include="Assets\Core\Simulation\Physics\Core\PartitionNode.cs" />
+     <Compile Include="Assets\Core\Simulation\Physics\Core\PhysicsManager.cs" />
+     <Compile Include="Assets\Core\Simulation\Physics\Core\PhysicsTool.cs" />
+     <Compile Include="Assets\Core\Simulation\Physics\Core\Settings\PhysicsSettings.cs" />
+     <Compile Include="Assets\Core\Simulation\Physics\Core\Settings\PhysicsSettingsSaver.cs" />
+     <Compile Include="Assets\Core\Simulation\Physics\Core\UnityLSBody.cs" />
+     <Compile Include="Assets\Core\Simulation\Physics\Raycast\Raycaster.cs" />
+     <Compile Include="Assets\Core\Simulation\Physics\Raycast\Test\RaycastTestHelper.cs" />
+     <Compile Include="Assets\Core\UI\LSUIWindow.cs" />
+     <Compile Include="Assets\Core\Utility\Array2D.cs" />
+     <Compile Include="Assets\Core\Utility\CodeHelper.cs" />
+     <Compile Include="Assets\Core\Utility\CoroutineManager.cs" />
+     <Compile Include="Assets\Core\Utility\Distributor.cs" />
+     <Compile Include="Assets\Core\Utility\FastCollections-master\BiDictionary.cs" />
+     <Compile Include="Assets\Core\Utility\FastCollections-master\FastBucket.cs" />
+     <Compile Include="Assets\Core\Utility\FastCollections-master\FastDictionary.cs" />
+     <Compile Include="Assets\Core\Utility\FastCollections-master\FastList.cs" />
+     <Compile Include="Assets\Core\Utility\FastCollections-master\FastQueue.cs" />
+     <Compile Include="Assets\Core\Utility\FastCollections-master\FastSorter.cs" />
+     <Compile Include="Assets\Core\Utility\FastCollections-master\FastStack.cs" />
+     <Compile Include="Assets\Core\Utility\FastCollections-master\LSEnumerable.cs" />
+     <Compile Include="Assets\Core\Utility\FastCollections-master\Shortcuts.cs" />
+     <Compile Include="Assets\Core\Utility\FastCollections-master\Tests\Array2DTester.cs" />
+     <Compile Include="Assets\Core\Utility\FrameTimer.cs" />
+     <Compile Include="Assets\Core\Utility\LSUtility.cs" />
+     <Compile Include="Assets\Core\Utility\MessageSystem\BaseMessageChannel.cs" />
+     <Compile Include="Assets\Core\Utility\MessageSystem\BaseMessageStop.cs" />
+     <Compile Include="Assets\Core\Utility\MessageSystem\DefaultMessage.cs" />
+     <Compile Include="Assets\Core\Utility\MessageSystem\DefaultMessageRaiser.cs" />
+     <Compile Include="Assets\Core\Utility\MessageSystem\IMessage.cs" />
+     <Compile Include="Assets\Core\Utility\MessageSystem\MessageChannel.cs" />
+     <Compile Include="Assets\Core\Utility\MessageSystem\MessageManager.cs" />
+     <Compile Include="Assets\Core\Utility\MessageSystem\MessageStop.cs" />
+     <Compile Include="Assets\Core\Utility\NDRaycast\NDRaycast.cs" />
+     <Compile Include="Assets\Core\Utility\NDRaycast\NDRaycastCollider.cs" />
+     <Compile Include="Assets\Core\Utility\PathObject\Core\PathObject.cs" />
+     <Compile Include="Assets\Core\Utility\PathObject\Core\PathObjectAttribute.cs" />
+     <Compile Include="Assets\Core\Utility\PathObject\Core\PathObjectFactory.cs" />
+     <Compile Include="Assets\Core\Utility\Serialization\CerealBehaviour.cs" />
+     <Compile Include="Assets\Core\Utility\Serialization\Compressor.cs" />
+     <Compile Include="Assets\Core\Utility\Serialization\FileManager.cs" />
+     <Compile Include="Assets\Core\Utility\Serialization\Reader.cs" />
+     <Compile Include="Assets\Core\Utility\Serialization\Writer.cs" />
+     <Compile Include="Assets\Database\Scripts\Core\AgentDataSorter.cs" />
+     <Compile Include="Assets\Database\Scripts\Core\DataItem.cs" />
+     <Compile Include="Assets\Database\Scripts\Core\DataItemAttribute.cs" />
+     <Compile Include="Assets\Database\Scripts\Core\DataItemCollection.cs" />
+     <Compile Include="Assets\Database\Scripts\Core\IDatabase.cs" />
+     <Compile Include="Assets\Database\Scripts\Core\LSDatabase.cs" />
+     <Compile Include="Assets\Database\Scripts\Core\LSDatabaseManager.cs" />
+     <Compile Include="Assets\Database\Scripts\Core\RegisterDataAttribute.cs" />
+     <Compile Include="Assets\Database\Scripts\Core\RegisterSortAttribute.cs" />
+     <Compile Include="Assets\Database\Scripts\Core\SortInfo.cs" />
+     <Compile Include="Assets\Database\Scripts\Default\DataItemTemplates\InputDataItem.cs" />
+     <Compile Include="Assets\Database\Scripts\Default\DataItemTemplates\MetaDataItem.cs" />
+     <Compile Include="Assets\Database\Scripts\Default\DataItemTemplates\ObjectDataItem.cs" />
+     <Compile Include="Assets\Database\Scripts\Default\DataItemTemplates\PathObjectDataItem.cs" />
+     <Compile Include="Assets\Database\Scripts\Default\DataItemTemplates\ScriptDataItem.cs" />
+     <Compile Include="Assets\Database\Scripts\Default\DefaultImplementations\AbilityDataItem.cs" />
+     <Compile Include="Assets\Database\Scripts\Default\DefaultImplementations\AgentControllerDataItem.cs" />
+     <Compile Include="Assets\Database\Scripts\Default\DefaultImplementations\AgentDataItem.cs" />
+     <Compile Include="Assets\Database\Scripts\Default\DefaultImplementations\DefaultLSDatabase.cs" />
+     <Compile Include="Assets\Database\Scripts\Essential\IData\IAgentData.cs" />
+     <Compile Include="Assets\Database\Scripts\Essential\IData\IEffectData.cs" />
+     <Compile Include="Assets\Database\Scripts\Essential\IData\IProjectileData.cs" />
+     <Compile Include="Assets\Database\Scripts\Essential\IData\Templates\INamedData.cs" />
+     <Compile Include="Assets\Database\Scripts\Essential\IProvider\IAbilityDataProvider.cs" />
+     <Compile Include="Assets\Database\Scripts\Essential\IProvider\IAgentControllerDataProvider.cs" />
+     <Compile Include="Assets\Database\Scripts\Essential\IProvider\IAgentDataProvider.cs" />
+     <Compile Include="Assets\Database\Scripts\Essential\IProvider\IEffectDataProvider.cs" />
+     <Compile Include="Assets\Database\Scripts\Essential\IProvider\IEssentialDataProvider.cs" />
+     <Compile Include="Assets\Database\Scripts\Essential\IProvider\IInputDataProvider.cs" />
+     <Compile Include="Assets\Database\Scripts\Essential\IProvider\IProjectileDataProvider.cs" />
+     <Compile Include="Assets\Database\Scripts\Essential\UnitConfig\IUnitConfigDataItem.cs" />
+     <Compile Include="Assets\Database\Scripts\Essential\UnitConfig\IUnitConfigDataProvider.cs" />
+     <Compile Include="Assets\Database\Scripts\Essential\UnitConfig\Stat.cs" />
+     <Compile Include="Assets\Database\Scripts\Essential\UnitConfig\UnitConfigDataItem.cs" />
+     <Compile Include="Assets\Database\Scripts\Essential\UnitConfig\UnitConfigElementDataItem.cs" />
+     <Compile Include="Assets\Example\Scripts\AutoSpawner.cs" />
+     <Compile Include="Assets\Example\Scripts\DefaultNetworkHelper.cs" />
+     <Compile Include="Assets\Example\Scripts\ExampleGameManager.cs" />
+     <Compile Include="Assets\Example\Scripts\ExampleReplayHelper.cs" />
+     <Compile Include="Assets\Example\Scripts\ExampleSpawner.cs" />
+     <Compile Include="Assets\Extra\BuildSystem\BuildGrid\BuildGridAPI.cs" />
+     <Compile Include="Assets\Extra\BuildSystem\BuildGrid\BuildGridManager.cs" />
+     <Compile Include="Assets\Extra\BuildSystem\BuildGrid\BuildGridNode.cs" />
+     <Compile Include="Assets\Extra\BuildSystem\BuildGrid\GridBuilder.cs" />
+     <Compile Include="Assets\Extra\BuildSystem\BuildGrid\IBuildable.cs" />
+     <Compile Include="Assets\Integration\CustomAttributes.cs" />
+     <Compile Include="Assets\Integration\Environment\DefaultSaver.cs" />
+     <Compile Include="Assets\Integration\Environment\EnvironmentAgentInfo.cs" />
+     <Compile Include="Assets\Integration\Environment\EnvironmentBodyInfo.cs" />
+     <Compile Include="Assets\Integration\Environment\EnvironmentHelper.cs" />
+     <Compile Include="Assets\Integration\Environment\EnvironmentObject.cs" />
+     <Compile Include="Assets\Integration\Environment\EnvironmentSaver.cs" />
+     <Compile Include="Assets\Integration\Environment\Heightmap\HeightMap.cs" />
+     <Compile Include="Assets\Integration\Environment\Heightmap\HeightmapSaver.cs" />
+     <Compile Include="Assets\Integration\Environment\Heightmap\Int2D.cs" />
+     <Compile Include="Assets\Integration\Environment\Heightmap\Long2D.cs" />
+     <Compile Include="Assets\Integration\Environment\Heightmap\Short2D.cs" />
+     <Compile Include="Assets\Integration\Rotorz\ClassTypeReference\ClassTypeReference\ClassTypeConstraintAttribute.cs" />
+     <Compile Include="Assets\Integration\Rotorz\ClassTypeReference\ClassTypeReference\ClassTypeReference.cs" />
+     <Compile Include="Assets\Integration\Rotorz\ClassTypeReference\Example\ExampleBehaviour.cs" />
+     <Compile Include="Assets\Integration\Rotorz\ClassTypeReference\Example\Special.cs" />
+     <Compile Include="Assets\Integration\Rotorz\ReorderableList\Properties\AssemblyInfo.cs" />
+     <Compile Include="Assets\Integration\Rotorz\ReorderableList\ReorderableListFlags.cs" />
+     <Compile Include="Assets\Integration\Test\GridDebugger.cs" />
+     <Compile Include="Assets\Integration\Test\TestHelper.cs" />
+     <Compile Include="Assets\Settings\LSFSettings.cs" />
+     <Compile Include="Assets\Settings\LSFSettingsManager.cs" />
+     <None Include="Assets\Core\Game\Player\Visuals\RTS 3D Arrow\Shader\ArrowShader.shader" />
+ <Reference Include="UnityEngine.UI">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.TestRunner">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+ </Reference>
+ <Reference Include="nunit.framework">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Timeline">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UIAutomation">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UIAutomation/UnityEngine.UIAutomation.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.GoogleAudioSpatializer">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.HoloLens">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.SpatialTracking">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>C:/Users/JohnnyChang/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/UnityEngine.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Purchasing">
+ <HintPath>C:/Users/JohnnyChang/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/UnityEngine.Purchasing.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.StandardEvents">
+ <HintPath>C:/Users/JohnnyChang/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>
